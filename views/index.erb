@@ -5,3 +5,13 @@
     <li><a href="/word/<%= word.id() %>"><%= word.word() %></a></li>
   <% end %>
 </ul>
+
+<h1>Add a Word </h1>
+
+<form action="/index" method="post">
+
+  <label for='word'>New word:</label>
+  <input id='word' name='word' type='text'>
+
+  <button type="submit">Add Word</button>
+</form>
