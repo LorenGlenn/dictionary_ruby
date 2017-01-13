@@ -1,13 +1,13 @@
-<h3>Definitions for <%= @word.word() %>:</h3>
+<h3>Definitions:</h3>
 
 <ul>
-  <% @word.definitions().each() do |define| %>
+  <% @definitions.each() do |define| %>
     <li><%= define.definition() %></li>
   <% end %>
 </ul>
 
-<h3>Add a new definition for <%= @word.word() %>:</h3>
-<form action="/word" method="post">
+<h3>Add a new definition:</h3>
+<form action="/word/<%= @word.id() %>" method="post">
   <input id='word_id' name='word_id' type='hidden' value='<%= @word.id() %>'>
   <label for='definition'>New definition:</label>
   <input id='definition' name='definition' type='text'>
