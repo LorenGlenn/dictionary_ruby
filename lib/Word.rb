@@ -3,9 +3,13 @@ class Word
   attr_reader(:word)
 
   define_method(:initialize) do |attributes|
-    @word = attributes.fetch(:input)
+    @word = attributes.fetch(:word)
     @id = @@words.length().+(1)
     @definitions = []
+end
+
+define_method(:id) do
+  @id
 end
 
 define_singleton_method(:all) do
@@ -18,6 +22,10 @@ end
 
 define_singleton_method(:clear) do
   @@words = []
+end
+
+define_method(:definitions) do
+  @definitions
 end
 
 define_method(:add_definition) do |definition|
