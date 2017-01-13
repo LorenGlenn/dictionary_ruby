@@ -1,0 +1,7 @@
+<h1>Welcome to your dictionary</h1>
+<h3>Click a word to see the definitions</h3>
+<ul>
+  <% @words.each() do |word| %>
+    <li><a href="/word/<%= word.id() %>"><%= word.word() %></a></li>
+  <% end %>
+</ul>
