@@ -11,22 +11,20 @@ end
 
 post('/') do
   newWord = params.fetch('word')
-  Word.new({:word => newWord}).save()
+  Word.new(newWord).save()
   @words = Word.all()
   erb(:index)
 end
 
 get('/word/:id') do
   @word = Word.find(params.fetch('id').to_i())
-  @definitions = @word.definitions()
   erb(:word)
 end
 
 post('/word/:id') do
   newDefinition = params.fetch('definition')
-  addedDefinition = Definition.new({:definition => newDefinition}).save()
+  addedDefinition = Definition.new(newDefinition).save()
   @word = Word.find(params.fetch('word_id').to_i())
   @word.add_definition(addedDefinition)
-  @definitons = @word.definitions()
-  erb(:word)
+  erb(:success)
 end

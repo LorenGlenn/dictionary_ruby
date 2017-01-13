@@ -1,14 +1,10 @@
 class Definition
   @@allDefinitions = []
-  attr_reader(:definition)
+  attr_accessor(:definition, :id)
 
-  define_method(:initialize) do |attributes|
-    @definition = attributes.fetch(:definition)
+  define_method(:initialize) do |definition|
+    @definition = definition
     @id = @@allDefinitions.length().+(1)
-  end
-
-  define_method(:id) do
-    @id
   end
 
   define_singleton_method(:all) do
